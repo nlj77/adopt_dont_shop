@@ -1,0 +1,8 @@
+<h1>Name: <%= @applicant.name %></h1>
+<p>address: <%= @applicant.address %> city: <%=@applicant.city%> state: <%=@applicant.state%> zip: <%= @applicant.zip%> </p>
+<p><%= @applicant.description %></p>
+
+<p> Pets wanted: <% @applicant.pets.all.each do |pet| %>
+    <%= link_to "#{pet.name}",  "/pets/#{pet.id}" %> <%= button_to "Reject #{pet.name}", "/applications/#{@applicant.id}", method: :patch, params: {pet_id: pet.id}  %></p>
+
+<% end %></p>
