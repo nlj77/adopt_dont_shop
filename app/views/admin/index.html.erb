@@ -3,7 +3,10 @@
 <% @shelters.each do |shelter| %>
 <p> <%= shelter.name %> </p>
 <% end %>
+
 <p><h3>Pending</h3></p>
-   <%= @shelters.pending.each do |shelter| %>
+   <%= @shelters.pending_applications.each do |shelter| %>
       <%= shelter.name %> 
+      <%= shelter.city%>
+      <%= shelter.state%>
    <% end %>
