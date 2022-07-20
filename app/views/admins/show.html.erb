@@ -2,7 +2,7 @@
 <p>address: <%= @applicant.address %> city: <%=@applicant.city%> state: <%=@applicant.state%> zip: <%= @applicant.zip%> </p>
 <p><%= @applicant.description %></p>
 
-<p> Pets wanted: <% @applicant.pets.all.each do |app_pet| %>
+<p>Pets wanted: <% @applicant.pets.all.each do |app_pet| %></p>
+    <%= "#{app_pet.name}" %>
     <%= button_to 'Approve', "/admins/applications/#{@applicant.id}", method: :patch, params: { approved: true, pet_id: app_pet.id }  %></p>
-
 <% end %></p>

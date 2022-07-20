@@ -20,7 +20,7 @@ RSpec.describe 'admin shelters index' do
       expect(page).to have_content('Fancy pets of Colorado')
 
       expect(@shelter_2.name).to appear_before(@shelter_1.name)
-      expect(@shelter_3.name).to appear_before(@shelter_2.name)
+      expect(@shelter_3.name).to appear_before(@shelter_1.name)
    end
 
    it "has a section for Shelter's with Pending Applications" do 
