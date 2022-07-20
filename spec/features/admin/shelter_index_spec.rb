@@ -41,5 +41,3 @@ RSpec.describe 'admin shelters index' do
       expect(page).to have_content("#{@shelter_1.name}")
    end
 end
-
-
