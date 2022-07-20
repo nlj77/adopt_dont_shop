@@ -13,7 +13,7 @@ RSpec.describe 'admin shelters index' do
       @pet_2 = @shelter_1.pets.create(name: 'Clawdia', breed: 'shorthair', age: 3, adoptable: true)
       @pet_3 = @shelter_3.pets.create(name: 'Lucille Bald', breed: 'sphynx', age: 8, adoptable: true)
       @pet_4 = @shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 5, adoptable: true)
-      visit '/admin/shelters'
+      visit '/admins/shelters'
 
       expect(page).to have_content('Aurora shelter')
       expect(page).to have_content('RGV animal shelter')
@@ -36,10 +36,8 @@ RSpec.describe 'admin shelters index' do
       @applicant_1 = Applicant.create!(name: "Mary", address: "123 Main St", city: "Denver", state: "CO", zip: 22222, description: 'love pets!', application_status: 'Pending')
       @applicant_pet = ApplicantPet.create!(pet: @pet_2, applicant: @applicant_1)
       
-      visit '/admin/shelters'
+      visit '/admins/shelters'
    
       expect(page).to have_content("#{@shelter_1.name}")
    end
 end
-
-

@@ -41,6 +41,21 @@ RSpec.describe Shelter, type: :model do
         expect(Shelter.order_by_number_of_pets).to eq([@shelter_1, @shelter_3, @shelter_2])
       end
     end
+
+    describe '.reverse_alphabetical' do 
+      it 'returns the names of shelters in reverse alphabetical order' do 
+        expect(Shelter.reverse_alphabetical).to eq([@shelter_2, @shelter_3, @shelter_1])
+      end
+    end
+
+    describe 'pending_applications' do 
+      xit 'lists names of every shelter that has pending applications' do 
+        @applicant_1 = Applicant.create!(name: "Mary", address: "123 Main St", city: "Denver", state: "CO", zip: 22222, description: 'love pets!', application_status: 'Pending')
+        @applicant_pet = ApplicantPet.create!(pet: @pet_2, applicant: @applicant_1)
+
+        expect(Shelter.pending_applications).to eq([@shelter_1])
+      end
+    end
   end
 
   describe 'instance methods' do
@@ -65,21 +80,6 @@ RSpec.describe Shelter, type: :model do
     describe '.pet_count' do
       it 'returns the number of pets at the given shelter' do
         expect(@shelter_1.pet_count).to eq(3)
-      end
-    end
-
-    describe '.reverse_alphabetical' do 
-      it 'returns the names of shelters in reverse alphabetical order' do 
-        expect(Shelter.reverse_alphabetical).to eq([@shelter_2, @shelter_3, @shelter_1])
-      end
-    end
-
-    describe 'pending_applications' do 
-      it 'lists names of every shelter that has pending applications' do 
-        @applicant_1 = Applicant.create!(name: "Mary", address: "123 Main St", city: "Denver", state: "CO", zip: 22222, description: 'love pets!', application_status: 'Pending')
-        @applicant_pet = ApplicantPet.create!(pet: @pet_2, applicant: @applicant_1)
-
-        expect(Shelter.pending_applications).to eq([@shelter_1])
       end
     end
   end
