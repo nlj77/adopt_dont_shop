@@ -8,5 +8,4 @@ class AdminsController < ApplicationController
         @applicant = Applicant.find(params[:id])
         # @pets = @application.pets
     end
-    
 end
