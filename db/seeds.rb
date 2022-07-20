@@ -16,4 +16,3 @@ shelter_3.pets.create(name: 'Clawdia', breed: 'shorthair', age: 3, adoptable: tr
 shelter_2.pets.create(name: 'Lucille Bald', breed: 'sphynx', age: 8, adoptable: true)
 
 new_applicant = Applicant.create(name: "Test", address: "5555 Test Avenue", city: "Denver", state: "CO", zip: 55555, names_pets_wanted: "Fido", description: "they love pets!", application_status: "In Progress")
-applicant_pet = ApplicantPet.create(pet: fido, applicant: new_applicant)
